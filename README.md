@@ -75,24 +75,29 @@ Ejecutamos el comando
 ---
 
 
-### Explicación diseño de el programa
-
-El programa tiene cuatro componentes las cuales son :
+### Diseño del programa.
 
 
-JS Web Client : Representado en la carpeta views, es el cliente de nuestra aplicacion el cual con una consulta GET de manera asincrona por medio de promesas.
 
-Wb Server with REST API Facade : Representado por tres carpetas.
+El programa consta de cuatro componentes principales:
 
-	- WebServer : Representa de manera codificada el servidor que recibe los request por parte del cliente.
+1. **JS Web Client (Cliente Web en JavaScript):** Representado en la carpeta "views", este cliente es la interfaz de nuestra aplicación. Realiza consultas asincrónicas mediante solicitudes GET utilizando promesas.
 
-  	- Controllers : Carpeta que representa el controladr del recurso films, trabaja como un intermediario entre los servicios y el servidor web.
+2. **Web Server with REST API Facade (Servidor Web con Fachada de API REST):** Dividido en tres carpetas.
 
-	- services : Es la parte logica del backend, conlleva la logica necesaria para retornar lo que requiere el cliente.
+   - **WebServer (Servidor Web):** Codifica el servidor que recibe las solicitudes del cliente.
+   
+   - **Controllers (Controladores):** Actúan como intermediarios entre los servicios y el servidor web. Se centran en el recurso "films".
+   
+   - **Services (Servicios):** Contiene la lógica del backend. Implementa la lógica necesaria para proporcionar las respuestas requeridas por el cliente.
 
- External REST API : Son los servicios web externos a los cuales se acude para la informacion del recurso films.
+3. **External REST API (API REST Externa):** Representa servicios web externos a los cuales se accede para obtener información sobre el recurso "films".
 
- Concurrent Java Test Client : Clase de Java encargada de testear las funcionalidades de el bakcend de fachada, reppresentado en la carpeta test.
+4. **Concurrent Java Test Client (Cliente de Pruebas Java Concurrente):** Una clase en Java responsable de probar las funcionalidades del backend de la fachada. Se encuentra en la carpeta "test".
+
+Para extender la funcionalidad de nuestro backend, hemos implementado una interfaz que define las funcionalidades y una clase que la implementa. Esta estructura nos permite agregar nuevas funciones simplemente extendiendo la interfaz existente.
+
+Cuando deseamos añadir más servicios web externos, utilizamos una interfaz de fábrica que devuelve instancias de los servicios web necesarios. Cada nuevo servicio web debe implementar esta interfaz de fábrica. También hemos implementado una interfaz con los métodos que deben ser implementados por los servicios web externos.
 
 
 
