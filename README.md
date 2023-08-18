@@ -23,13 +23,9 @@ Java 19: Java es un lenguaje de programación de propósito general orientado a 
 
 ### Instalación
 
-
-
-```
-
-
 Clonamos el repositorio
 
+```
     git clone https://github.com/julianCS21/taller01Arep.git
 
 ```
@@ -95,7 +91,13 @@ El programa consta de cuatro componentes principales:
 
 4. **Concurrent Java Test Client (Cliente de Pruebas Java Concurrente):** Una clase en Java responsable de probar las funcionalidades del backend de la fachada. Se encuentra en la carpeta "test".
 
+
+
+
 Para extender la funcionalidad de nuestro backend, hemos implementado una interfaz que define las funcionalidades y una clase que la implementa. Esta estructura nos permite agregar nuevas funciones simplemente extendiendo la interfaz existente.
+
+
+
 
 Cuando deseamos añadir más servicios web externos, utilizamos una interfaz de fábrica que devuelve instancias de los servicios web necesarios. Cada nuevo servicio web debe implementar esta interfaz de fábrica. También hemos implementado una interfaz con los métodos que deben ser implementados por los servicios web externos.
 
