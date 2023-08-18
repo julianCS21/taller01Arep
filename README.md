@@ -9,8 +9,11 @@ Programa creado para buscar en la api gratis de https://www.omdbapi.com/. La apl
 Para elaborar este proyecto se requirio de : 
 
 Maven: Apache Maven es una herramienta que maneja el ciclo de vida del programa.
+
 Git: Es un sistema de control de versiones distribuido (VCS).
+
 Java 19: Java es un lenguaje de programación de propósito general orientado a objetos, portátil y muy versátil.
+
 
 ```
 
@@ -45,7 +48,7 @@ Ahora corremos el servidor
 
 	 mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.ASE.app.webServer.HTTPServer"
 
-Por ultimo accedemos a Firefox con la siguiente URL
+Por ultimo accedemos a nuestro navegador de confianza con la siguiente URL
 
 	 http://localhost:35000/
 
