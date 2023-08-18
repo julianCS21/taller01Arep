@@ -33,7 +33,7 @@ Clonamos el repositorio
     git clone https://github.com/julianCS21/taller01Arep.git
 
 ```
-Se accede al repositorio que acabamos de clonar
+Se accede a la carpeta principal del repositorio repositorio que acabamos de clonar
 
 	 cd HTTPserverInJava
 
@@ -73,6 +73,16 @@ Ejecutamos el comando
 	mvn Test
 	
 ---
+
+
+### Explicación diseño de el programa
+
+El programa se diseño con cuatro capas las cuales son :
+
+
+
+
+
 ## Construido con
 
 * [Maven](https://maven.apache.org/): Apache Maven es una herramienta que estandariza la configuración del ciclo de vida del proyecto.
