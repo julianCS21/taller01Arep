@@ -35,14 +35,14 @@ Clonamos el repositorio
 ```
 Se accede a la carpeta principal del repositorio repositorio que acabamos de clonar
 
-	 cd HTTPserverInJava
+	 cd taller01Arep
 
 Hacemos la construccion del proyecto
 
 	 mvn package
 ---
 ### Corriendo
-Primero corremos los siguientes comando
+Corremos los siguientes comando
 	
 	 mvn clean package install
 	 mvn clean install
@@ -77,8 +77,22 @@ Ejecutamos el comando
 
 ### Explicación diseño de el programa
 
-El programa se diseño con cuatro capas las cuales son :
+El programa tiene cuatro componentes las cuales son :
 
+
+JS Web Client : Representado en la carpeta views, es el cliente de nuestra aplicacion el cual con una consulta GET de manera asincrona por medio de promesas.
+
+Wb Server with REST API Facade : Representado por tres carpetas.
+
+	- WebServer : Representa de manera codificada el servidor que recibe los request por parte del cliente.
+
+  	- Controllers : Carpeta que representa el controladr del recurso films, trabaja como un intermediario entre los servicios y el servidor web.
+
+	- services : Es la parte logica del backend, conlleva la logica necesaria para retornar lo que requiere el cliente.
+
+ External REST API : Son los servicios web externos a los cuales se acude para la informacion del recurso films.
+
+ Concurrent Java Test Client : Clase de Java encargada de testear las funcionalidades de el bakcend de fachada, reppresentado en la carpeta test.
 
 
 
