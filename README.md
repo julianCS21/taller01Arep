@@ -66,7 +66,7 @@ Aqui nos debera de cargar la siguiente pagina, con la cual podemos empezar a hac
 
 Ejecutamos el comando
 
-	mvn Test
+	mvn test
 	
 ---
 
