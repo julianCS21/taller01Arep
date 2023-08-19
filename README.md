@@ -87,9 +87,9 @@ El programa consta de cuatro componentes principales:
    
    - **Services (Servicios):** Contiene la lógica del backend. Implementa la lógica necesaria para proporcionar las respuestas requeridas por el cliente.
 
-3. **External REST API (API REST Externa):** Representa servicios web externos a los cuales se accede para obtener información sobre el recurso "films".
+3. **External REST API (API REST Externa):** Representa servicios web externos a los cuales se accede para obtener información sobre el recurso "films", es la carpeta "ExternalsWebServices".
 
-4. **Concurrent Java Test Client (Cliente de Pruebas Java Concurrente):** Una clase en Java responsable de probar las funcionalidades del backend de la fachada. Se encuentra en la carpeta "test".
+4. **Concurrent Java Test Client (Cliente de Pruebas Java Concurrente):** Una clase en Java responsable de probar las funcionalidades del backend. Se encuentra en la carpeta "test".
 
 
 
