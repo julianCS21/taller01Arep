@@ -89,7 +89,7 @@ El programa consta de cuatro componentes principales:
 
 3. **External REST API (API REST Externa):** Representa servicios web externos a los cuales se accede para obtener información sobre el recurso "films".
 
-4. **Concurrent Java Test Client (Cliente de Pruebas Java Concurrente):** Una clase en Java responsable de probar las funcionalidades del backend de la fachada. Se encuentra en la carpeta "test".
+4. **Concurrent Java Test Client (Cliente de Pruebas Java Concurrente):** Una clase en Java responsable de probar las funcionalidades del backend de la fachada de manera concurrente a través de hilos. Se encuentra en la carpeta "test".
 
 
 
