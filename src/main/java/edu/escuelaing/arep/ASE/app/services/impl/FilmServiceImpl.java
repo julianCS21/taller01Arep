@@ -1,6 +1,7 @@
 package edu.escuelaing.arep.ASE.app.services.impl;
 
 import java.io.IOException;
+import java.util.concurrent.ConcurrentHashMap;
 
 import edu.escuelaing.arep.ASE.app.ExternalsWebServices.FactoryOmdapiConnection;
 import edu.escuelaing.arep.ASE.app.ExternalsWebServices.FactoryExternalsService;
@@ -15,6 +16,9 @@ public class FilmServiceImpl  implements FilmService{
 
 
     FactoryExternalsService OdmApiconnection;
+
+    //instance of cache
+    ConcurrentHashMap<String,String> cache = new ConcurrentHashMap<>();
 
 
     
@@ -37,6 +41,9 @@ public class FilmServiceImpl  implements FilmService{
     public String getFilmByTitle(String query,String URL, String apikey) throws IOException {
         
         ExternalServices ApiConnection = this.OdmApiconnection.connection(URL, apikey);
+        if(cache.contains(query)){
+            return cache.get(query);
+        }
         return ApiConnection.getData(query);        
     }
     

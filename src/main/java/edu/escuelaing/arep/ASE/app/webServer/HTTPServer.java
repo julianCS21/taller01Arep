@@ -93,15 +93,8 @@ public class HTTPServer {
 
 
             if(path.equals("films")){
-                if(cache.containsKey(filmTitle)){
-                    response = cache.get(filmTitle);
-
-                }
-                else{
-                    response = controller.getFilmByTitle(filmTitle, "http://www.omdbapi.com/?t=", "c45e3292");
-                    cache.put(filmTitle, response);
-
-                }
+                
+                response = controller.getFilmByTitle(filmTitle, "http://www.omdbapi.com/?t=", "c45e3292");
                 responseServer.println("HTTP/1.1 200 OK");
                 responseServer.println("Content-Type: application/json"); 
                 responseServer.println("Content-Length: " + response.length());

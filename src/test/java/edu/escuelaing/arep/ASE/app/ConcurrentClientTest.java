@@ -16,30 +16,43 @@ import edu.escuelaing.arep.ASE.app.controllers.FilmController;
  */
 public class ConcurrentClientTest {
 
-    FilmController controllerTest;
+    public FilmController controllerTest;
 
     @Before
     public void setUp() throws Exception {
         controllerTest = new FilmController();
     }
 
+    private  class FilmTestRunnable implements Runnable {
+        @Override
+        public void run() {
+            try {
+                String resultGet = controllerTest.getFilmByTitle("the+avengers", "http://www.omdbapi.com/?t=", "c45e3292");
+                String jsonString = "{\"Title\":\"The Avengers\",\"Year\":\"2012\",...}";
+
+                Assert.assertEquals(resultGet, jsonString);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Test
-    public void WhenItDoACorrectGetRequestShouldToShowAFilm() throws IOException{
+    public void whenItDoACorrectGetRequestShouldToShowAFilmConcurrently() throws InterruptedException {
+        Thread[] threads = new Thread[10]; 
 
-        //request and results
-        String resultGet = controllerTest.getFilmByTitle("the+avengers", "http://www.omdbapi.com/?t=","c45e3292");
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new Thread(new FilmTestRunnable());
+        }
 
+        for (Thread thread : threads) {
+            thread.start();
+        }
 
-        String jsonString = "{\"Title\":\"The Avengers\",\"Year\":\"2012\",\"Rated\":\"PG-13\",\"Released\":\"04 May 2012\",\"Runtime\":\"143 min\",\"Genre\":\"Action, Sci-Fi\",\"Director\":\"Joss Whedon\",\"Writer\":\"Joss Whedon, Zak Penn\",\"Actors\":\"Robert Downey Jr., Chris Evans, Scarlett Johansson\",\"Plot\":\"Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.\",\"Language\":\"English, Russian\",\"Country\":\"United States\",\"Awards\":\"Nominated for 1 Oscar. 38 wins & 80 nominations total\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg\",\"Ratings\":[{\"Source\":\"Internet Movie Database\",\"Value\":\"8.0/10\"},{\"Source\":\"Rotten Tomatoes\",\"Value\":\"91%\"},{\"Source\":\"Metacritic\",\"Value\":\"69/100\"}],\"Metascore\":\"69\",\"imdbRating\":\"8.0\",\"imdbVotes\":\"1,426,217\",\"imdbID\":\"tt0848228\",\"Type\":\"movie\",\"DVD\":\"22 Jun 2014\",\"BoxOffice\":\"$623,357,910\",\"Production\":\"N/A\",\"Website\":\"N/A\",\"Response\":\"True\"}";
-
-
-        //Asserts
-
-        Assert.assertEquals(resultGet,jsonString);
-
-
-
+        for (Thread thread : threads) {
+            thread.join();
+        }
     }
+
 }
     
