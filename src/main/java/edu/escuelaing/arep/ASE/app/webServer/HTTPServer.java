@@ -25,8 +25,7 @@ public class HTTPServer {
         //instance of controller
         FilmController controller = new FilmController();
 
-        //instance of cache
-        ConcurrentHashMap<String,String> cache = new ConcurrentHashMap<>();
+        
 
         
         try{
